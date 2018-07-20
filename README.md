@@ -1,5 +1,7 @@
 # Would-you-rather?
-$yarn install
-$yarn add @material-ui/core
-$yarn add contentful
-$yarn add redux
+$npm install
+$npm install @material-ui/core
+$npm install contentful
+$npm install react-redux
+$npm install react-router-dom
+$npm install @material-ui/icons
