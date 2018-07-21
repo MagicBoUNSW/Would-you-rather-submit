@@ -7,16 +7,13 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import TextField from 'material-ui/TextField';
-
-import red from '@material-ui/core/colors/red';
-
-const primary = red[500]; // #F44336
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import SAvatar from './SAvatar';
 
 const styles = {
   root: {
@@ -57,7 +54,15 @@ class MenuAppBar extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ anchorEl: null });
+    this.setState({ anchorEl: null});
+  };
+
+  handleLogOut = () => {
+    this.setState({ auth: false});
+  };
+
+  handleLogIn = () => {
+    this.setState({ auth: false});
   };
 
   render() {
@@ -69,9 +74,35 @@ class MenuAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" style={style}>
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <IconButton
+              aria-label="Menu"
+              aria-owns={open ? 'menu-appbar' : null}
+              className={classes.menuButton}
+              color="inherit"
+              onClick={this.handleMenu}
+            >
               <MenuIcon />
             </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={this.handleClose}
+            >
+              <Link to="/home" style={{ textDecoration: 'none' }}>
+                <MenuItem onClick={this.handleClose}>Home</MenuItem>
+              </Link>
+              <Link to="/leaderboard" style={{ textDecoration: 'none' }}>
+                <MenuItem onClick={this.handleClose}>Leaderboard</MenuItem>
+              </Link>
+              {auth ?
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                  <MenuItem onClick={this.handleLogOut}>Logout</MenuItem>
+                </Link> :
+                <Link to="/login" style={{ textDecoration: 'none' }}>
+                  <MenuItem onClick={this.handleChange}>Login</MenuItem>
+                </Link>}
+            </Menu>
             <Typography variant="title" color="inherit" className={classes.flex}>
               Would You Rather?
             </Typography>
@@ -82,35 +113,6 @@ class MenuAppBar extends React.Component {
               onChange={(e) => this.setState({ searchfor:e.target.value})}
               margin="normal"
             />
-            {auth && (
-              <div>
-                <IconButton
-                  aria-owns={open ? 'menu-appbar' : null}
-                  aria-haspopup="true"
-                  onClick={this.handleMenu}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={open}
-                  onClose={this.handleClose}
-                >
-                  <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                </Menu>
-              </div>
-            )}
           </Toolbar>
         </AppBar>
       </div>
