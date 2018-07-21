@@ -12,9 +12,7 @@ import Home from './containers/Home';
 import LeaderBoard from './containers/LeaderBoard';
 import { handleInitialData } from './actions/shared'
 import { connect } from 'react-redux'
-
 import Page from './containers/Page'
-import TopBar from './containers/TopBar'
 import LoadingBar from 'react-redux-loading'
 class App extends Component {
   componentDidMount() {
@@ -25,19 +23,16 @@ class App extends Component {
   	const {classes} = this.props;
     return (
     	<Router>
-    		<div classename="container">
-		        <MenuAppBar />
-		        <Link to="/add"><AddButton /></Link>
+    		<div classename="container">         
 		        <Fragment>
 		          <LoadingBar />
 		          <div className='body'>
-		            <TopBar />
+		            <MenuAppBar />
 		            <Page />
 		          </div>
 		        </Fragment>
 		    </div>
-    	</Router>
-      
+    	</Router>    
     );
   }
 }

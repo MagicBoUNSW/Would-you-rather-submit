@@ -5,42 +5,12 @@ import { receiveQuestions } from './questions'
 import { receiveUsers } from './users'
 import { getInitialData, saveQuestion, saveQuestionAnswer } from '../utils/api'
 
-// #region functions
-
-function addQuestion(question) {
-  return {
-    type: ADD_QUESTION,
-    question
-  }
-}
-
-function answerQuestion({ user, qid, answer }) {
-  return {
-    type: ANSWER_QUESTION,
-    user,
-    qid,
-    answer
-  }
-}
-
-function deleteAnswerQuestion({ user, qid, answer }) {
-  return {
-    type: DELETE_ANSWER_QUESTION,
-    user,
-    qid,
-    answer
-  }
-}
-
-// add functions here that manipulate more than one portion of the store
-
-// #endregions
 
 // #region export
-
-export const ADD_QUESTION = 'ADD_QUESTION'
-export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 export const DELETE_ANSWER_QUESTION = 'DELETE_ANSWER_QUESTION'
+export const ANSWER_QUESTION = 'ANSWER_QUESTION'
+export const ADD_QUESTION = 'ADD_QUESTION'
+
 
 export function handleAddQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
@@ -87,5 +57,31 @@ export function handleInitialData() {
         })
   }
 }
+
+function deleteAnswerQuestion({ user, qid, answer }) {
+  return {
+    type: DELETE_ANSWER_QUESTION,
+    user,
+    qid,
+    answer
+  }
+}
+
+function addQuestion(question) {
+  return {
+    type: ADD_QUESTION,
+    question
+  }
+}
+
+function answerQuestion({ user, qid, answer }) {
+  return {
+    type: ANSWER_QUESTION,
+    user,
+    qid,
+    answer
+  }
+}
+
 
 // #endregion

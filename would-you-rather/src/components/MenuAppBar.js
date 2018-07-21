@@ -14,7 +14,7 @@ import Menu from '@material-ui/core/Menu';
 import TextField from 'material-ui/TextField';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SAvatar from './SAvatar';
-
+import WelcomeUser from '../containers/WelcomeUser'
 const styles = {
   root: {
     flexGrow: 1,
@@ -74,35 +74,6 @@ class MenuAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" style={style}>
           <Toolbar>
-            <IconButton
-              aria-label="Menu"
-              aria-owns={open ? 'menu-appbar' : null}
-              className={classes.menuButton}
-              color="inherit"
-              onClick={this.handleMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={this.handleClose}
-            >
-              <Link to="/home" style={{ textDecoration: 'none' }}>
-                <MenuItem onClick={this.handleClose}>Home</MenuItem>
-              </Link>
-              <Link to="/leaderboard" style={{ textDecoration: 'none' }}>
-                <MenuItem onClick={this.handleClose}>Leaderboard</MenuItem>
-              </Link>
-              {auth ?
-                <Link to="/" style={{ textDecoration: 'none' }}>
-                  <MenuItem onClick={this.handleLogOut}>Logout</MenuItem>
-                </Link> :
-                <Link to="/login" style={{ textDecoration: 'none' }}>
-                  <MenuItem onClick={this.handleChange}>Login</MenuItem>
-                </Link>}
-            </Menu>
             <Typography variant="title" color="inherit" className={classes.flex}>
               Would You Rather?
             </Typography>
@@ -113,8 +84,10 @@ class MenuAppBar extends React.Component {
               onChange={(e) => this.setState({ searchfor:e.target.value})}
               margin="normal"
             />
+            <WelcomeUser />
           </Toolbar>
         </AppBar>
+        
       </div>
     );
   }
