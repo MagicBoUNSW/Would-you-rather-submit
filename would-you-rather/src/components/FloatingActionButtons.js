@@ -18,18 +18,20 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
   },
 });
-
+const custom_color = {
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+};
 function FloatingActionButtons(props) {
   const { classes } = props;
   return (
     <div>
-      <Button variant="fab" color="primary" style={{backgroundColor: primary}} aria-label="Add" className={classes.button}>
+      <Button variant="fab" color="primary" style={custom_color} aria-label="Add" className={classes.button}>
         <AddIcon />
       </Button>
-      <Button variant="fab" color="primary" style={{backgroundColor: primary}} aria-label="Edit" className={classes.button}>
+      <Button variant="fab" color="primary" style={custom_color} aria-label="Edit" className={classes.button}>
         <EditIcon />
       </Button>
-      <Button variant="fab" color="primary" style={{backgroundColor: primary}} aria-label="Delete" className={classes.button}>
+      <Button variant="fab" color="primary" style={custom_color} aria-label="Delete" className={classes.button}>
         <DeleteIcon />
       </Button>
     </div>

@@ -12,6 +12,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import TextField from 'material-ui/TextField';
+
 import red from '@material-ui/core/colors/red';
 
 const primary = red[500]; // #F44336
@@ -29,10 +31,21 @@ const styles = {
   },
 };
 
+const style = {
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 70%)',
+  borderRadius: 0,
+  border: 0,
+  color: 'white',
+  height: 60,
+  padding: '0 30px',
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+};
+
 class MenuAppBar extends React.Component {
   state = {
     auth: true,
     anchorEl: null,
+    searchfor:""
   };
 
   handleChange = (event, checked) => {
@@ -49,27 +62,26 @@ class MenuAppBar extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
+    const { auth, anchorEl, searchfor } = this.state;
     const open = Boolean(anchorEl);
 
     return (
       <div className={classes.root}>
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch color="primary" checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
-            }
-            label={auth ? 'Logout' : 'Login'}
-          />
-        </FormGroup>
-        <AppBar position="static" style={{backgroundColor: primary}}>
+        <AppBar position="static" style={style}>
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Photos
+              Would You Rather?
             </Typography>
+            <TextField
+              className={classes.textfield}
+              placeholder="Search"
+              value={searchfor}
+              onChange={(e) => this.setState({ searchfor:e.target.value})}
+              margin="normal"
+            />
             {auth && (
               <div>
                 <IconButton
