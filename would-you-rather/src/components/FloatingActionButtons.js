@@ -10,9 +10,15 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import red from '@material-ui/core/colors/red';
 
 const primary = red[500]; // #F44336
+
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
+  },
+  absolute: {
+    position: 'fixed',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 3,
   },
   extendedIcon: {
     marginRight: theme.spacing.unit,
