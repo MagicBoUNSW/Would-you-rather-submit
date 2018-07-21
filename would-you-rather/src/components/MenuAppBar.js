@@ -77,13 +77,6 @@ class MenuAppBar extends React.Component {
             <Typography variant="title" color="inherit" className={classes.flex}>
               Would You Rather?
             </Typography>
-            <TextField
-              className={classes.textfield}
-              placeholder="Search"
-              value={searchfor}
-              onChange={(e) => this.setState({ searchfor:e.target.value})}
-              margin="normal"
-            />
             <WelcomeUser />
           </Toolbar>
         </AppBar>

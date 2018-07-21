@@ -38,8 +38,13 @@ export default class IconLabelTabs extends React.Component {
   render() {
     return (
       <div className='navigation-bar'>
-        <Paper style={{ width: 500 }}>
-          <Tabs style={custom_color}>
+        <Paper>
+          <Tabs value={this.state.value}
+            onChange={this.handleChange}
+            fullWidth
+            indicatorColor="secondary"
+            textColor="secondary" 
+            style={custom_color}>
             <Link to="/login">
               <Tab icon={<HomeIcon />} label="HOME" />
             </Link>

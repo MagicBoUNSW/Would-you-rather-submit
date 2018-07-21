@@ -4,16 +4,16 @@ import { connect } from 'react-redux'
 import User from './User'
 
 class LeaderBoard extends Component {
-  countQuestions = id => {
-    return this.props.users[id].questions.length
+  totalScore = id => {
+    return this.countQuestions(id) + this.countAnswers(id)
   }
 
   countAnswers = id => {
     return Object.keys(this.props.users[id].answers).length
   }
 
-  totalScore = id => {
-    return this.countQuestions(id) + this.countAnswers(id)
+  countQuestions = id => {
+    return this.props.users[id].questions.length
   }
 
   render() {
