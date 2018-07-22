@@ -9,7 +9,7 @@ import Answers from './Answers'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import ViewBox from './ViewBox'
-
+import Hieu from '../images/Hieu.jpeg';
 class Login extends Component {
   state = {
     view: 'initial',
@@ -95,7 +95,8 @@ class Login extends Component {
   render() {
     const { view, redirect } = this.state
     const { from } = { from: { pathname: '/unanswered' } } // use this if you only want to redirect to unanswered after login
-
+    const title = 'WOULD YOU RATHER?'
+    const avatarURL = Hieu
     if (redirect === true) {
       return <Redirect to={from} />
     }
@@ -109,7 +110,9 @@ class Login extends Component {
             </div>
           </li>
           <li>
-            <ViewBox viewName='login'>
+            <ViewBox viewName='login' 
+              title={title}
+              avatarURL={avatarURL}>
               {this.loginOption(view)}
             </ViewBox>
           </li>

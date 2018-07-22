@@ -15,6 +15,11 @@ class ViewBox extends Component {
           {this.props.children}
         </div>
         <div />
+        <div
+          className='user-avatar'
+          style={{
+            backgroundImage: `url(${avatarURL})`
+          }} />
       </div>
     )
   }
