@@ -1,21 +1,15 @@
+import { ANSWER_QUESTION, DELETE_ANSWER_QUESTION, ADD_QUESTION } from '../actions/shared'
 import { ADD_USER, RECEIVE_USERS } from '../actions/users'
-import { ADD_QUESTION, ANSWER_QUESTION, DELETE_ANSWER_QUESTION } from '../actions/shared'
 
-// #region export
+
 
 export default function users(state = {}, action) {
   switch(action.type) {
-    case ADD_QUESTION : {
-      const { id, author } = action.question
-
+    case RECEIVE_USERS :
       return {
         ...state,
-        [author]: {
-          ...state[author],
-          questions: state[author].questions.concat([id])
-        }
+        ...action.users
       }
-    }
     case ADD_USER :
       return {
         ...state,
@@ -51,14 +45,20 @@ export default function users(state = {}, action) {
         }
       }
     }
-    case RECEIVE_USERS :
+    case ADD_QUESTION : {
+      const { id, author } = action.question
+
       return {
         ...state,
-        ...action.users
+        [author]: {
+          ...state[author],
+          questions: state[author].questions.concat([id])
+        }
       }
+    }
+    
     default :
       return state
   }
 }
 
-// #endregion

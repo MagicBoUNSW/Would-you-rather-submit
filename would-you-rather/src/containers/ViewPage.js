@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 
-import AddQuestion from './AddQuestion'
-import Answered from './Answered'
-import ErrorPage from './ErrorPage'
-import LeaderBoard from './LeaderBoard'
-import Login from './Login'
+import Home from './Home'
 import PrivateRoute from './PrivateRoute'
 import Unanswered from './Unanswered'
+import AddQuestion from './AddQuestion'
+import Answered from './Answered'
+import LeaderBoard from './LeaderBoard'
+
 
 class ViewPage extends Component {
   render() {
@@ -21,16 +21,14 @@ class ViewPage extends Component {
               <Redirect to="/unanswered" />
             )} />
           <Route
-            path='/login'
-            component={Login} />
-          <PrivateRoute
-            path='/add'
-            component={AddQuestion} />
-          <PrivateRoute
-            path='/unanswered'
-            component={Unanswered} />
+            path='/home'
+            component={Home} />
+
           <PrivateRoute
             path='/question/:id'
+            component={Unanswered} />
+          <PrivateRoute
+            path='/unanswered'
             component={Unanswered} />
           <PrivateRoute
             path='/answered'
@@ -38,8 +36,9 @@ class ViewPage extends Component {
           <PrivateRoute
             path='/leaderboard'
             component={LeaderBoard} />
-          <Route
-            component={ErrorPage} />
+          <PrivateRoute
+            path='/add'
+            component={AddQuestion} />
         </Switch>
       </div>
     )

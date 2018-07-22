@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 
 class PrivateRoute extends Component {
   render() {
@@ -11,7 +12,7 @@ class PrivateRoute extends Component {
         authenticated
           ? <Component {...rest} />
           : <Redirect to={{
-            pathname: '/login',
+            pathname: '/home',
             state: { from: props.location }
           }} />
       )} />

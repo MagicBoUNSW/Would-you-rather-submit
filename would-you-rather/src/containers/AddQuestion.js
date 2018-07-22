@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { handleAddQuestion } from '../actions/shared'
-
-import AskForm from './AskForm'
 import ViewBox from './ViewBox'
+import AskForm from './AskForm'
 
 class AddQuestion extends Component {
   render() {
@@ -21,15 +19,21 @@ class AddQuestion extends Component {
     return (
       <ul>
         <li>
-          <ViewBox
-            viewName={viewName}
-            title={title}
-            avatarURL={avatarURL}>
+          <ViewBox viewName={viewName} title={title} avatarURL={avatarURL}>
             <AskForm handleAddQuestion={handleAddQuestion} />
           </ViewBox>
         </li>
       </ul>
     )
+  }
+}
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addQuestion: (optionOneText, optionTwoText) => {
+      dispatch(handleAddQuestion(optionOneText, optionTwoText))
+    }
   }
 }
 
@@ -43,14 +47,6 @@ function mapStateToProps({ users, authedUser }) {
   return {
     authed,
     avatarURL
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    addQuestion: (optionOneText, optionTwoText) => {
-      dispatch(handleAddQuestion(optionOneText, optionTwoText))
-    }
   }
 }
 

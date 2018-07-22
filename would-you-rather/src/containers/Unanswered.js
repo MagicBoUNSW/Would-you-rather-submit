@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-
 import Question from './Question'
-import SmallQuestion from './SmallQuestion'
 
 class Unanswered extends Component {
   render() {
@@ -13,12 +11,7 @@ class Unanswered extends Component {
       <ul>
         {filteredQuestions.map(id => (
           <li key={id}>
-            {id === questionId
-              ? <Question id={id} />
-              : <SmallQuestion
-                id={id}
-                onClick={() => history.push(`/question/${id}`)}
-              />}
+            <Question id={id} />
           </li>
         ))}
       </ul>

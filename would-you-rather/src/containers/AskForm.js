@@ -38,26 +38,10 @@ class AskForm extends Component {
 
     return (
       <form className='ask-form' onSubmit={this.handleSubmit}>
-        <textarea
-          value={optionOneText}
-          onChange={this.handleChange}
-          name='optionOneText'
-          className='input-option'
-          rows='5'
-          maxLength='100'
-          placeholder='Option one'
-          tabIndex='1'
-          required />
-        <textarea
-          value={optionTwoText}
-          onChange={this.handleChange}
-          name='optionTwoText'
-          className='input-option'
-          rows='5'
-          maxLength='100'
-          placeholder='Option two'
-          tabIndex='2'
-          required />
+        <textarea value={optionOneText} onChange={this.handleChange} name='optionOneText'
+          className='input-option' rows='5' maxLength='100' placeholder='Option one' tabIndex='1' required />
+        <textarea value={optionTwoText} onChange={this.handleChange} name='optionTwoText'
+          className='input-option' rows='5' maxLength='100' placeholder='Option two' tabIndex='2' required />
         <input type='submit' value='Submit' className='submit-question' />
       </form>
     )

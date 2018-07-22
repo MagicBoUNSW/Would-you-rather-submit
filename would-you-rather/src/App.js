@@ -7,7 +7,6 @@ import AddButton from './components/AddButton'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 import Routes from "./Routes";
-import Login from './containers/Login';
 import Home from './containers/Home';
 import LeaderBoard from './containers/LeaderBoard';
 import { handleInitialData } from './actions/shared'

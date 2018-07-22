@@ -1,4 +1,4 @@
-/* #region basic html tags */
+
 
 html {
   overflow-y: scroll;
@@ -32,17 +32,10 @@ textarea {
   resize: none;
 }
 
-/* #endregion */
-
-/* #region browser-specific */
-
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* #endregion */
-
-/* #region classes */
 
 .body {
   font-family: sans-serif;
@@ -239,17 +232,6 @@ button:focus {
   outline: 0;
 }
 
-.leaderboard li:nth-child(1) .view-box {
-  border: 2px solid gold;
-}
-
-.leaderboard li:nth-child(2) .view-box {
-  border: 2px solid silver;
-}
-
-.leaderboard li:nth-child(3) .view-box {
-  border: 2px solid #cd7f32;
-}
 
 .show-score {
   margin: 10px;
@@ -285,12 +267,3 @@ button:focus {
   background-size: 28px;
   font-size: 0;
 }
-
-.error-page {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* #endregion */

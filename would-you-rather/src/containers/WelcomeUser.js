@@ -10,7 +10,7 @@ class WelcomeUser extends Component {
     return (
       <div className='welcome-user'>
         <div className='user'>
-          <p>Hello <strong>{userName}</strong>!</p>
+          <p>Welcome <strong>{userName}</strong>!</p>
           <div
             className='user-avatar tiny'
             style={{
@@ -31,9 +31,6 @@ function mapStateToProps({ authedUser, users }) {
     userName = users[authedUser].name
     loggedIn = true
     avatarURL = users[authedUser].avatarURL
-  } else {
-    userName = 'there'
-    avatarURL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Pictogram_voting_question.svg/220px-Pictogram_voting_question.svg.png'
   }
 
   return {

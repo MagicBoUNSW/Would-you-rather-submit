@@ -1,14 +1,12 @@
+import { ANSWER_QUESTION, DELETE_ANSWER_QUESTION, ADD_QUESTION } from '../actions/shared'
 import { RECEIVE_QUESTIONS } from '../actions/questions'
-import { ADD_QUESTION, ANSWER_QUESTION, DELETE_ANSWER_QUESTION } from '../actions/shared'
-
-// #region export
 
 export default function questions(state = {}, action) {
   switch (action.type) {
-    case ADD_QUESTION :
+    case RECEIVE_QUESTIONS :
       return {
         ...state,
-        [action.question.id]: action.question
+        ...action.questions
       }
     case ANSWER_QUESTION : {
       const { user, qid, answer } = action
@@ -38,14 +36,14 @@ export default function questions(state = {}, action) {
         }
       }
     }
-    case RECEIVE_QUESTIONS :
+    case ADD_QUESTION :
       return {
         ...state,
-        ...action.questions
+        [action.question.id]: action.question
       }
+    
     default :
       return state
   }
 }
 
-// #endregion

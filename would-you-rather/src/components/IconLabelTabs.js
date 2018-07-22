@@ -45,7 +45,7 @@ export default class IconLabelTabs extends React.Component {
             indicatorColor="secondary"
             textColor="secondary" 
             style={custom_color}>
-            <Link to="/login">
+            <Link to="/home">
               <Tab icon={<HomeIcon />} label="HOME" />
             </Link>
             <Link to="/add">

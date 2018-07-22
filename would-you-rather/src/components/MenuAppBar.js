@@ -13,7 +13,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import TextField from 'material-ui/TextField';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import SAvatar from './SAvatar';
 import WelcomeUser from '../containers/WelcomeUser'
 const styles = {
   root: {

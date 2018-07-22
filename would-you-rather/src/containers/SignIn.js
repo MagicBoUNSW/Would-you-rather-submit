@@ -1,27 +1,35 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-class SignIn extends Component {
+class SignIn extends React.Component {
+
+
   render() {
-    const { users, onLogin } = this.props
+    const { classes, users, onLogin } = this.props
 
     return (
-      <select
-        onChange={event => onLogin(event.target.value)}
-        defaultValue='default'>
-        <option
-          disabled
-          value='default'>
-          Choose Account
-        </option>
-        {Object.keys(users).map(user => (
-          <option
-            key={users[user].id}
-            value={users[user].id}>
-            {users[user].name}
-          </option>
-        ))}
-      </select>
+        <div>
+          <FormControl>
+            <InputLabel >Account</InputLabel>
+            <Select native onChange={event => onLogin(event.target.value)}>
+              <option >Choose Account</option>
+              {Object.keys(users).map(user => (
+                <option
+                  key={users[user].id}
+                  value={users[user].id}>
+                  {users[user].name}
+                </option>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
     )
   }
 }

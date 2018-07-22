@@ -7,7 +7,7 @@ class ViewBox extends Component {
     const { title, avatarURL } = this.props
 
     return (
-      <div className='view-box'>
+      <div className='view-box' style={custom_color}>
         <div className='details'>
           <div className='title'>
             {title}
